@@ -49,7 +49,14 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.usb.config=none
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
 endif
 
-# Some permissions
+# Call Recording
+TARGET_CALL_RECORDING_SUPPORTED ?= true
+ifneq ($(TARGET_CALL_RECORDING_SUPPORTED),false)
+PRODUCT_COPY_FILES += \
+    vendor/aosp/config/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
+endif
+
+# Lineage-specific file
 PRODUCT_COPY_FILES += \
     vendor/aosp/config/permissions/privapp-permissions-lineagehw.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-lineagehw.xml
 
