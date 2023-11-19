@@ -1,7 +1,8 @@
 # Branding
 $(call inherit-product, vendor/aosp/config/branding.mk)
+$(call inherit-product, vendor/aosp/config/craftrom.mk)
 
-PRODUCT_BRAND ?= PixelExperience
+PRODUCT_BRAND ?= CraftRomOS
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
