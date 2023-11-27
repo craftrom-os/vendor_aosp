@@ -29,9 +29,10 @@ CUSTOM_SECURITY_PATCH := 2022-08-05
 
 # Versioning props
 ADDITIONAL_SYSTEM_PROPERTIES  += \
-    org.pixelexperience.version=$(CUSTOM_VERSION_PROP) \
-    org.pixelexperience.version.display=$(CUSTOM_VERSION) \
-    org.pixelexperience.build_date=$(CUSTOM_BUILD_DATE) \
-    org.pixelexperience.build_date_utc=$(CUSTOM_BUILD_DATE_UTC) \
-    org.pixelexperience.build_type=$(CUSTOM_BUILD_TYPE) \
-    org.pixelexperience.build_security_patch=$(CUSTOM_SECURITY_PATCH)
+    org.craftrom.version=$(CUSTOM_VERSION_PROP) \
+    org.craftrom.version.display=$(CUSTOM_VERSION) \
+    org.craftrom.build_date=$(CUSTOM_BUILD_DATE) \
+    org.craftrom.build_date_utc=$(CUSTOM_BUILD_DATE_UTC) \
+    org.craftrom.build_type=$(CUSTOM_BUILD_TYPE) \
+    org.craftrom.build_security_patch=$(CUSTOM_SECURITY_PATCH) \
+    ro.craftrom.maintainer=$(CUSTOM_MAINTAINER)
