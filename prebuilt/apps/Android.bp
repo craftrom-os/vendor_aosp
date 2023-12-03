@@ -7,7 +7,7 @@
 android_app_import {
     apk: "GoogleCameraGo.apk",
     name: "GoogleCameraGo",
-    overrides: ["Camera2"],
+	overrides: ["Camera2","Snap", "Aperture", "Flash"],
     presigned: true,
     dex_preopt: {
         enabled: false,
