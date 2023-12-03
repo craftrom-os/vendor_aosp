@@ -215,8 +215,11 @@ PRODUCT_PACKAGES += \
     Abstruct
 
 # Camera
+TARGET_GCAM_SUPPORTED ?= true
+ifeq ($(TARGET_GCAM_SUPPORTED),true)
 PRODUCT_PACKAGES += \
     GoogleCameraGo
+endif
 
 # Repainter integration
 PRODUCT_PACKAGES += \
