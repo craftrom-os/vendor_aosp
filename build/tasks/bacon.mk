@@ -1,6 +1,7 @@
 # Copyright (C) 2017 Unlegacy-Android
 # Copyright (C) 2017,2020 The LineageOS Project
 # Copyright (C) 2018,2020 The PixelExperience Project
+# Copyright (C) 2023 CraftRom Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,18 +18,22 @@
 CUSTOM_TARGET_PACKAGE := $(PRODUCT_OUT)/$(CUSTOM_VERSION).zip
 
 SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
-MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
 
 .PHONY: bacon
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(CUSTOM_TARGET_PACKAGE)
 	$(hide) $(SHA256) $(CUSTOM_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(CUSTOM_TARGET_PACKAGE).sha256sum
-	@echo "Package Complete: $(CUSTOM_TARGET_PACKAGE)" >&2
-	@echo -e ${CL_CYN}"===========-Package Completed-==========="${CL_RST}
-	@echo -e ${CL_BLD}${CL_YLW}"Zip: "${CL_YLW} $(CUSTOM_TARGET_PACKAGE)${CL_RST}
-	@echo -e ${CL_BLD}${CL_YLW}"MD5: "${CL_YLW}" `cat $(CUSTOM_TARGET_PACKAGE).md5sum | cut -d ' ' -f 1` "${CL_RST}
-	@echo -e ${CL_BLD}${CL_YLW}"SHA256: "${CL_YLW}" `sha256sum $(CUSTOM_TARGET_PACKAGE) | cut -d ' ' -f 1` "${CL_RST}
-	@echo -e ${CL_BLD}${CL_YLW}"Size: "${CL_YLW}" `ls -l $(CUSTOM_TARGET_PACKAGE) | cut -d ' ' -f 5` "${CL_RST}
-	@echo -e ${CL_BLD}${CL_YLW}"Timestamp: "${CL_MAG} $(CUSTOM_BUILD_DATE_UTC) ${CL_RST}
-	@echo -e ${CL_CYN}"===========-----Ready To Flash :)-----==========="${CL_RST}
-	@echo -e ""
+	@echo ""
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "                  CraftRom OS                 " >&2
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "------------------------------------------------" >&2
+	@echo " [Timestamp]            : " $(CUSTOM_BUILD_DATE_UTC)
+	@echo " [Size]                            : $(shell du -hs $(CUSTOM_TARGET_PACKAGE) | awk '{print $$1}')"
+	@echo " [Size(in bytes)]       : $(shell wc -c $(CUSTOM_TARGET_PACKAGE) | awk '{print $$1}')"
+	@echo " [Package]                  : "$(CUSTOM_TARGET_PACKAGE)"               " >&2
+	@echo " [SHA256]                   :  `sha256sum $(CUSTOM_TARGET_PACKAGE) | cut -d ' ' -f 1` "
+	@echo "------------------------------------------------" >&2
+	@echo ""
