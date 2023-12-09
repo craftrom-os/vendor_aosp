@@ -30,10 +30,10 @@ bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
 	@echo "                                                                " >&2
 	@echo "                                                                " >&2
 	@echo "------------------------------------------------" >&2
-	@echo " [Timestamp]            : " $(CUSTOM_BUILD_DATE_UTC)
+	@echo " [Timestamp]            : "$(CUSTOM_BUILD_DATE_UTC)
 	@echo " [Size]                 : $(shell du -hs $(CUSTOM_TARGET_PACKAGE) | awk '{print $$1}')"
 	@echo " [Size(in bytes)]       : $(shell wc -c $(CUSTOM_TARGET_PACKAGE) | awk '{print $$1}')"
-	@echo " [Package]              : "$(CUSTOM_TARGET_PACKAGE)"               " >&2
-	@echo " [SHA256]               :  `sha256sum $(CUSTOM_TARGET_PACKAGE) | cut -d ' ' -f 1` "
+	@echo " [Package]              : "$(CUSTOM_TARGET_PACKAGE)"               "
+	@echo " [SHA256]               : `sha256sum $(CUSTOM_TARGET_PACKAGE) | cut -d ' ' -f 1` "
 	@echo "------------------------------------------------" >&2
 	@echo ""
