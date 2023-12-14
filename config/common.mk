@@ -268,6 +268,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     NexusLauncherResOverlay
 
+# Required packages
+PRODUCT_PACKAGES += \
+    ThemePicker
+    
 # Audio
 $(call inherit-product, vendor/aosp/config/audio.mk)
 
