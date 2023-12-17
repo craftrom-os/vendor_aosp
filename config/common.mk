@@ -2,6 +2,10 @@
 $(call inherit-product, vendor/aosp/config/branding.mk)
 $(call inherit-product, vendor/aosp/config/craftrom.mk)
 
+# Include {Lato,Rubik} fonts
+$(call inherit-product-if-exists, external/google-fonts/lato/fonts.mk)
+$(call inherit-product-if-exists, external/google-fonts/rubik/fonts.mk)
+
 PRODUCT_BRAND ?= CraftRomOS
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
@@ -125,39 +129,52 @@ PRODUCT_PACKAGES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.support_one_handed_mode?=true \
 
-# Hide navigation bar hint
+# Customizations
 PRODUCT_PACKAGES += \
     IconPackCircularAndroidOverlay \
     IconPackCircularLauncherOverlay \
     IconPackCircularSettingsOverlay \
     IconPackCircularSystemUIOverlay \
-    IconPackCircularThemePickerOverlay \
     IconPackFilledAndroidOverlay \
     IconPackFilledLauncherOverlay \
     IconPackFilledSettingsOverlay \
     IconPackFilledSystemUIOverlay \
-    IconPackFilledThemePickerOverlay \
     IconPackKaiAndroidOverlay \
     IconPackKaiLauncherOverlay \
     IconPackKaiSettingsOverlay \
     IconPackKaiSystemUIOverlay \
-    IconPackKaiThemePickerOverlay \
     IconPackRoundedAndroidOverlay \
     IconPackRoundedLauncherOverlay \
     IconPackRoundedSettingsOverlay \
     IconPackRoundedSystemUIOverlay \
-    IconPackRoundedThemePickerOverlay \
     IconPackSamAndroidOverlay \
     IconPackSamLauncherOverlay \
     IconPackSamSettingsOverlay \
     IconPackSamSystemUIOverlay \
-    IconPackSamThemePickerOverlay \
     IconPackVictorAndroidOverlay \
     IconPackVictorLauncherOverlay \
     IconPackVictorSettingsOverlay \
     IconPackVictorSystemUIOverlay \
-    NavigationBarNoHintOverlay
+    IconShapePebbleOverlay \
+    IconShapeRoundedRectOverlay \
+    IconShapeSquareOverlay \
+    IconShapeSquircleOverlay \
+    IconShapeTaperedRectOverlay \
+    IconShapeTeardropOverlay \
+    IconShapeVesselOverlay \
+    LineageNavigationBarNoHint
 
+# Themes
+PRODUCT_PACKAGES += \
+    ThemePicker \
+    ThemesStub
+    
+# Fonts
+PRODUCT_PACKAGES += \
+    fonts_customization.xml \
+    FontLatoOverlay \
+    FontRubikOverlay
+    
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUIGoogle \
@@ -267,10 +284,6 @@ PRODUCT_PACKAGES += \
 # NexusLauncher resources
 PRODUCT_PACKAGES += \
     NexusLauncherResOverlay
-
-# Required packages
-PRODUCT_PACKAGES += \
-    ThemePicker
     
 # Audio
 $(call inherit-product, vendor/aosp/config/audio.mk)
