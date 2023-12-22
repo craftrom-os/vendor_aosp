@@ -162,6 +162,7 @@ PRODUCT_PACKAGES += \
     IconShapeTaperedRectOverlay \
     IconShapeTeardropOverlay \
     IconShapeVesselOverlay \
+    AndroidBlackThemeOverlay \
     LineageNavigationBarNoHint
 
 # Themes
