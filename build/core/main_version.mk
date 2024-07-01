@@ -7,7 +7,7 @@ endif
 # CraftRom versioning props
 ADDITIONAL_SYSTEM_PROPERTIES += \
     ro.custom.build.date=$(BUILD_DATE) \
-    ro.custom.device=$(CUSTOM_BUILD) \
+    ro.custom.device=$(CRAFTROM_DEVICE) \
     ro.custom.fingerprint=$(ROM_FINGERPRINT) \
     ro.custom.version=$(CUSTOM_VERSION_PROP) \
     ro.modversion=$(CUSTOM_VERSION) \
